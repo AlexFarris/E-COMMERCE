@@ -1,0 +1,24 @@
+- CATEGORIA(idCategoria,nome,descrizione)
+- PRODUTTORE(idProduttore,nome,descrizione,StatoResidenza,tipologiaProdotti)
+- PRODOTTO(idProdotto,nome,descrizione,numeroProdotti,prezzo)
+	- PRODUTTORE FK(PRODUTTORE.idProduttore)
+
+- RECENSIONE(idRecensione,titolo,contenuto,stelle)
+	- USER FK(USER.idUser)
+	- PRODOTTI FK(PRODOTTI.idProdotti)
+
+- CARRELLO(idCarrello,costoAttuale)
+	- USER FK(USER.idUser)
+	- ORDINE FK(ORDINE.idOrdine)
+
+- USER(idUser,nome,cognome,sesso,indirizzo,numeroCivico,citta,provincia,CAP,metodoPagamento,mail,numeroTelefono,stato)
+- ORDINE(idOrdine,data,costoTotale)
+	- USER FK(USER.idUser)
+
+- CATEGORIA_PRODOTTI(CATEGORIA↑,PRODOTTI↑)
+	- CATEGORIA FK(CATEGORIA.idCategoria)
+	- PRODOTTI FK(PRODOTTI.idProdotti)
+
+- CARRELLO_PRODOTTI(CARRELLO↑,PRODOTTI↑)
+	- CARRELLO FK(CARRELLO.idCarrello)
+	- PRODOTTI FK(PRODOTTI.idProdotti)
